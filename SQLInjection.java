@@ -7,7 +7,7 @@ public class SQLInjection {
 			String userName = args [0];
 			String passwd   = args [1];
 			
-			String name = canuse(userName);
+			String name = vaild(userName);
 			
 			String query = "select uname, passwd from users where uname = '"+name+"'";
 			conn = DriverManager.getConnection ("jdbc:odbc:logistics", "admin", "letmein");
@@ -25,7 +25,7 @@ public class SQLInjection {
 		}
 	}
 	
-	public static String canuse(String name) {
+	public static String vaild(String name) {
 		if ( name.matches("[a-z][0-9a-zA-Z]{0,32}") ) {
 			return name;
 		} else {
